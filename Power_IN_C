@@ -1,0 +1,25 @@
+#include<stdio.h>
+
+int power_recursive(int m, int n){
+    // Recursive function to calculate m^n
+    if(n==0)
+        return 1;
+    return power_recursive(m,n-1)*m;
+
+}
+
+int power_iterative(int m, int n){
+    int i,res=1;
+    for(i=1; i<=n; i++){
+        res = res*m;
+    }
+    return res;
+}
+
+main(){
+    int i;  
+    for(i=0; i<10; i++){
+        printf("%d %d %d\n", i, power_recursive(2,i), power_iterative(2,i));
+    }
+    printf("Happy Birthday !!\n");
+}
