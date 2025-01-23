@@ -1,0 +1,25 @@
+#include<stdio.h>
+#define IN 1    // inside a word
+#define OUT 0   // outside a word
+/*
+    Counting lines, words, and characters in input
+*/
+main(){
+    int c, nl, nw, nc, state;
+
+    state = OUT;
+    nl = nw = nc = 0;
+    while((c = getchar()) != EOF){
+        ++nc;           // Till the file is not ending keep counting the characters
+        if(c == '\n'){  // If the character is new line then increment the new line count
+            ++nl;
+        }
+        if(c == ' ' || c == '\n' || c == '\t'){     // If the character is space, new line or tab then set the state to OUT
+            state = OUT;
+        }else if(state == OUT){            // If the state is OUT then set the state to IN and increment the word count
+            state = IN;
+            ++nw;
+        }
+    }
+    printf("%d %d %d\n", nl, nw, nc);
+}
