@@ -45,6 +45,8 @@ int main(){
         syntax: free(ptr)
 
     */
+    // Commenting this for using realloc
+    /*
     printf("Enter the input values:\n");
     for(int i=0; i<n; i++){
         scanf("%d", ptr + i);
@@ -53,6 +55,19 @@ int main(){
     printf("Input Values:\n");
     for(int i=0; i<n; i++){
         printf("%d\n",*(ptr+i));            // dereferncing 
+    }
+    */
+
+    printf("Allocated Memory\n");
+    for(int i=0; i<n; i++){
+        printf("%p\n", ptr+i);
+    }
+
+    n = 6;
+    ptr = realloc(ptr, n*sizeof(int));
+    printf("Newly Allocated Memory\n");
+    for(int i=0; i<n; i++){
+        printf("%p\n", ptr+i);
     }
 
     free(ptr);          // To free the memory 
